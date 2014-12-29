@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="aritm" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="test">
+				<Option output="bin/test/aritm" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/test/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add directory="cppunitlite" />
+				</Linker>
+			</Target>
+			<Target title="release">
+				<Option output="bin/release/aritm" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="cppunitlite" />
+			<Add directory="src" />
+		</Compiler>
+		<Unit filename="cppunitlite/Failure.h">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/Test.cpp">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/Test.h">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestHarness.h">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestRegistry.cpp">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestRegistry.h">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestResult.cpp">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestResult.h">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestResultDebugOut.cpp">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestResultDebugOut.h">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestResultStdErr.cpp">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="cppunitlite/TestResultStdErr.h">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="main.cpp">
+			<Option target="test" />
+		</Unit>
+		<Unit filename="src/Expression.h" />
+		<Unit filename="src/ExpressionParser.h" />
+		<Unit filename="src/Trim.h" />
+		<Unit filename="src/main.cpp">
+			<Option target="release" />
+		</Unit>
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
