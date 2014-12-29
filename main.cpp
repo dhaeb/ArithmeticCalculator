@@ -7,29 +7,13 @@ using namespace std;
 
 TEST (IntExpression,Test1)
 {
-    CHECK(IntExpression(1) == IntExpression(1).eval());
-    CHECK(IntExpression(1) != IntExpression(2).eval());
-    CHECK(IntExpression(2) == IntExpression(1) + IntExpression(1));
-    CHECK(IntExpression(1) == IntExpression(1) + IntExpression(0));
-    CHECK(IntExpression(1) == IntExpression(1) - IntExpression(0));
-    CHECK(IntExpression(-1) == IntExpression(1) - IntExpression(2));
-    CHECK(IntExpression(0) == IntExpression(1) * IntExpression(0));
-    CHECK(IntExpression(42) == IntExpression(7) * IntExpression(6));
-    CHECK(IntExpression(0) == IntExpression(0) / IntExpression(12));
-    CHECK(IntExpression(1) == IntExpression(12) / IntExpression(12));
-    CHECK(IntExpression(1) == IntExpression(4) / IntExpression(3));
-
-    bool wasThrown = false;
-    try {
-        IntExpression(4) / IntExpression(0);
-    } catch (ArithmeticException e){
-        wasThrown =true;
-        CHECK("Devided by zero" == e.what());
-    }
-    CHECK(wasThrown);
-    CHECK("3" == IntExpression(3).toString());
-    CHECK("-6" == IntExpression(-6).toString());
+    // Here you have to add some tests
+    // for the production code which you will need to write
+    // in order to get the program working!!!
 }
+
+#ifdef RUN_OTHER_TESTS // you can delete this when you want to run the other tests
+                       // DON'T FORGET ALSO TO DELETE THE ENDIF OF THE MACRO!
 
 TEST (Arithmetic,Test2)
 {
@@ -70,6 +54,8 @@ TEST (ParserBasis,Test6){
     auto result = ExpressionParser("10{16} * 100 / 10000{2}").parse();
     CHECK(IntExpression(100) == result->eval());
 }
+
+#endif // OTHER_TESTS
 
 int main()
 {

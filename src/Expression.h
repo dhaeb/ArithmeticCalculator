@@ -37,34 +37,31 @@ public :
     }
 
     bool operator==(IntExpression other){
-        return this->n == other.n;
+
     }
 
     bool operator!=(IntExpression other){
-        return not (*this == other);
+
     }
 
     IntExpression operator+(IntExpression other){
-        return IntExpression(n + other.n);
+
     }
 
     IntExpression operator-(IntExpression other){
-        return IntExpression(n - other.n);
+
     }
 
     IntExpression operator*(IntExpression other){
-        return IntExpression(n * other.n);
+
     }
 
     IntExpression operator/(IntExpression other){
-        if(other.n == 0){
-            throw ArithmeticException("Devided by zero");
-        }
-        return IntExpression(n / other.n);
+
     }
 
     string toString(){
-        return std::to_string(n);
+
     }
 };
 
