@@ -1,1 +1,1 @@
-{"id":"cpp","ext":"cpp","version":"GNU GCC v4.8.3","compile":"make test","execute":"make clean run","preview":"","file":"/home/cg/src/samples/main.cpp","url":"compile_cpp_online.php","mode":"c_cpp"}
+{"id":"cpp","ext":"cpp","version":"GNU GCC v4.8.3","compile":"make test","execute":"make clean run","preview":"","file":"/home/cg/root/main.cpp","url":"compile_cpp_online.php","mode":"c_cpp"}
