@@ -44,17 +44,14 @@ public :
         return not (*this == other);
     }
 
-    IntExpression operator+(IntExpression other){
-        return IntExpression(n + other.n);
-    }
+    #define impl_operator(op) \
+    IntExpression operator op(IntExpression other){ \
+        return IntExpression(n op other.n); \
+    };
 
-    IntExpression operator-(IntExpression other){
-        return IntExpression(n - other.n);
-    }
-
-    IntExpression operator*(IntExpression other){
-        return IntExpression(n * other.n);
-    }
+    impl_operator(+)
+    impl_operator(-)
+    impl_operator(*)
 
     IntExpression operator/(IntExpression other){
         if(other.n == 0){
