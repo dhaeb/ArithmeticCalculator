@@ -5,7 +5,7 @@
 
 using namespace std;
 
-TEST (Identity,Test1)
+TEST (IntExpression,Test1)
 {
     CHECK(IntExpression(1) == IntExpression(1).eval());
     CHECK(IntExpression(1) != IntExpression(2).eval());
