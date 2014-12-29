@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="aritm" />
+		<Option title="calc" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="test">
-				<Option output="bin/test/aritm" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/test/calc_test" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/test/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -19,7 +19,7 @@
 				</Linker>
 			</Target>
 			<Target title="release">
-				<Option output="bin/release/aritm" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/release/calc" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
