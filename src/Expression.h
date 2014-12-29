@@ -64,60 +64,50 @@ public :
     }
 };
 
-class Addition : public Expression {
+class BioperatorExpression : public Expression {
+    protected:
     Expression * e1, * e2;
-public:
-    Addition(Expression* e1, Expression* e2) : e1(e1), e2(e2){}
-    IntExpression eval(){
-        return e1->eval() + e2->eval();
-    };
 
-    ~Addition(){
+    public:
+    BioperatorExpression(Expression* e1, Expression* e2) : e1(e1), e2(e2){}
+    virtual IntExpression eval() = 0;
+
+    ~BioperatorExpression(){
         delete e1;
         delete e2;
     }
 };
 
-class Substraction : public Expression {
-    Expression * e1, * e2;
-public:
-    Substraction(Expression* e1, Expression* e2) : e1(e1), e2(e2){}
-    IntExpression eval(){
-        return e1->eval() - e2->eval();
+#define BioperatorConstructor(Typename) \
+    Typename(Expression* e1, Expression* e2) : BioperatorExpression(e1, e2) {}
+
+#define SimpleArithmeticEval(Operator) \
+    IntExpression eval(){ \
+        return e1->eval() Operator e2->eval(); \
     };
 
-    ~Substraction(){
-        delete e1;
-        delete e2;
-    }
+class Addition : public BioperatorExpression {
+public:
+    BioperatorConstructor(Addition)
+    SimpleArithmeticEval(+)
 };
 
-class Multiplication : public Expression {
-    Expression * e1, * e2;
+class Substraction : public BioperatorExpression {
 public:
-    Multiplication(Expression * e1, Expression * e2) : e1(e1), e2(e2){}
-    IntExpression eval(){
-        return e1->eval() * e2->eval();
-    };
-
-    Multiplication(){
-        delete e1;
-        delete e2;
-    }
+    BioperatorConstructor(Substraction)
+    SimpleArithmeticEval(-)
 };
 
-class Devision : public Expression {
-    Expression * e1, * e2;
+class Multiplication : public BioperatorExpression {
 public:
-    Devision(Expression* e1, Expression* e2) : e1(e1), e2(e2){}
-    IntExpression eval(){
-        return e1->eval() / e2->eval();
-    };
+    BioperatorConstructor(Multiplication)
+    SimpleArithmeticEval(*)
+};
 
-    ~Devision(){
-        delete e1;
-        delete e2;
-    }
+class Devision : public BioperatorExpression {
+public:
+    BioperatorConstructor(Devision)
+    SimpleArithmeticEval(/)
 };
 
 #endif // EXPRESSION_H_INCLUDED
