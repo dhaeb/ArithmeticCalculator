@@ -1,3 +1,7 @@
+/**
+ *  Includes all kinds of expressions to create an abstract syntax tree.
+ *  This is the only file you need to adjust.
+ */
 #ifndef EXPRESSION_H_INCLUDED
 #define EXPRESSION_H_INCLUDED
 
