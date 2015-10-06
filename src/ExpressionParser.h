@@ -39,12 +39,13 @@ public :
             result = parseBiOperator<Multiplication>(indexMult);
         } else if(indexParenthesis != std::string::npos){
             auto indexClosingParenthesis = getParsable().find('}');
+            auto base = stoi(getParsable().substr(indexParenthesis + 1, indexClosingParenthesis));
             auto value = stoi(getParsable().substr(0, indexParenthesis),
-                              0,
-                              stoi(getParsable().substr(indexParenthesis + 1, indexClosingParenthesis)));
+                              0, // not needed
+                              base);
             result = new IntExpression(value);
         } else {
-            result = new IntExpression(stoi(getParsable(), 0, 10));
+            result = new IntExpression(stoi(getParsable()));
         }
         return result;
     }

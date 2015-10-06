@@ -17,10 +17,10 @@ int main(){
         if(expr == "quit"){
             break;
         } else {
-            cout << "Input: " << expr << endl;
-            cout << "Result is: " << ExpressionParser(expr).parse()->eval().toString() << endl;
+            if(!expr.empty()){
+                cout << "Input: " << expr << endl;
+                cout << "Result is: " << ExpressionParser(expr).parse()->eval().toString() << endl;
+            }
         }
     }
-
-
 }
