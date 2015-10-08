@@ -79,36 +79,18 @@ class BioperatorExpression : public Expression {
     }
 };
 
-#define BioperatorConstructor(Typename) \
-    Typename(Expression* e1, Expression* e2) : BioperatorExpression(e1, e2) {}
-
-#define SimpleArithmeticEval(Operator) \
-    IntExpression eval(){ \
-        return e1->eval() Operator e2->eval(); \
+#define BioperatorArithmeticTemplate(Typename, Operator) \
+    class Typename : public BioperatorExpression { \
+        public: \
+            Typename(Expression* e1, Expression* e2) : BioperatorExpression(e1, e2) {} \
+            IntExpression eval(){ \
+                return e1->eval() Operator e2->eval(); \
+            } \
     };
 
-class Addition : public BioperatorExpression {
-public:
-    BioperatorConstructor(Addition)
-    SimpleArithmeticEval(+)
-};
-
-class Substraction : public BioperatorExpression {
-public:
-    BioperatorConstructor(Substraction)
-    SimpleArithmeticEval(-)
-};
-
-class Multiplication : public BioperatorExpression {
-public:
-    BioperatorConstructor(Multiplication)
-    SimpleArithmeticEval(*)
-};
-
-class Devision : public BioperatorExpression {
-public:
-    BioperatorConstructor(Devision)
-    SimpleArithmeticEval(/)
-};
+BioperatorArithmeticTemplate(Addition, +)
+BioperatorArithmeticTemplate(Substraction, -)
+BioperatorArithmeticTemplate(Multiplication, *)
+BioperatorArithmeticTemplate(Devision, /)
 
 #endif // EXPRESSION_H_INCLUDED
